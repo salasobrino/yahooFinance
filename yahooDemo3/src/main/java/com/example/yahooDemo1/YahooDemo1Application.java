@@ -11,19 +11,10 @@ import yahoofinance.YahooFinance;
 //https://www.sidmartinbio.org/is-there-an-api-for-yahoo-finance/
 
 @SpringBootApplication
-public class YahooDemo1Application  {
+public class YahooDemo1Application {
 	
-	public StockData getStock(String stockName) throws IOException {
-		
-		Stock st = YahooFinance.get(stockName);		
-		StockData std = new StockData(st.getName(), st.getQuote().getPrice(), st.getQuote().getChange(), st.getCurrency(), st.getQuote().getBid());
-		
-		
-		return std;
-	}
-	
-	public StockData setStock() {
-		return null;
+	public Stock getStock(String stockName) throws IOException {
+		return YahooFinance.get(stockName);
 	}
 	
 
@@ -32,7 +23,7 @@ public class YahooDemo1Application  {
 		
 		YahooDemo1Application yahooStockAPI = new YahooDemo1Application();
 		
-		System.out.println(yahooStockAPI.getStock("INTC")); //change find stock market
+		System.out.println(yahooStockAPI.getStock("GOOG"));
 	
 	}
 
