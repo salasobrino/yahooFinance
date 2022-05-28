@@ -28,7 +28,7 @@ public class YahooDemo1Application  {
 		
 		YahooDemo1Application yahooStockAPI = new YahooDemo1Application();
 		
-		System.out.println(yahooStockAPI.getStock("INCT"));
+		System.out.println(yahooStockAPI.getStock("TSLA"));
 	
 	}
 
