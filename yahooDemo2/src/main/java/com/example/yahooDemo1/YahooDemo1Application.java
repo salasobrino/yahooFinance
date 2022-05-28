@@ -13,8 +13,16 @@ import yahoofinance.YahooFinance;
 @SpringBootApplication
 public class YahooDemo1Application {
 	
-	public Stock getStock(String stockName) throws IOException {
-		return YahooFinance.get(stockName);
+	public StockData getStock(String stockName) throws IOException {
+		
+		Stock st = YahooFinance.get(stockName);		  
+		StockData std = new StockData(st.getName(), st.getQuote().getPrice(), 
+				st.getQuote().getChange(), st.getCurrency(), st.getQuote().getBid());
+		
+		  return std;
+		
+		
+		
 	}
 	
 
@@ -23,7 +31,7 @@ public class YahooDemo1Application {
 		
 		YahooDemo1Application yahooStockAPI = new YahooDemo1Application();
 		
-		System.out.println(yahooStockAPI.getStock("GOOG"));
+		System.out.println(yahooStockAPI.getStock("INCT"));
 	
 	}
 
